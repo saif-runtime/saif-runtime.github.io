@@ -1,8 +1,6 @@
 :root{
-  --bg:#0b0b0c; --panel:#151517; --line:#26262a; --text:#f4f4f5; --muted:#9a9aa3; --accent:#ff9f1c; --accent-ink:#1a1100;
-}
-@media (prefers-color-scheme: light){
-  :root{--bg:#f6f5f2; --panel:#fff; --line:#e3e1db; --text:#141414; --muted:#6b6b72; --accent:#e8830a; --accent-ink:#fff}
+  color-scheme:light;
+  --bg:#f6f5f2; --panel:#fff; --line:#e3e1db; --text:#141414; --muted:#6b6b72; --accent:#e8830a; --accent-ink:#fff;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -73,7 +71,6 @@ ol.steps li{counter-increment:s;display:flex;gap:16px;background:var(--panel);bo
 ol.steps li::before{content:counter(s);flex:none;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:800;display:grid;place-items:center}
 ol.steps li>div{min-width:0}ol.steps .shot{display:block;width:min(100%,560px);height:auto;margin:18px 0 6px}ol.steps .shot.narrow{width:min(100%,340px)}ol.steps .shot.medium{width:min(100%,420px)}ol.steps strong{display:block}ol.steps span{color:var(--muted);font-size:15px}
 .tag.free{background:color-mix(in srgb,#22c55e 18%,transparent);color:#16a34a}
-@media (prefers-color-scheme: dark){.tag.free{color:#4ade80}}
 .note{border-left:3px solid var(--accent);padding:4px 0 4px 16px;color:var(--muted);font-size:14px;margin-top:24px}
 .support{text-align:center}
 .support .sub{margin-left:auto;margin-right:auto}
