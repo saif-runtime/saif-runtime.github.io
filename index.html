@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saif – GTA: San Andreas, native on Apple Silicon</title>
+  <meta name="description" content="Saif is a native macOS runtime for GTA: San Andreas. Just point it at your game and play.">
+  <link rel="icon" href="assets/icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <link rel="canonical" href="https://saif-runtime.github.io/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0b0b0c">
+  <meta name="keywords" content="GTA San Andreas Mac, GTA San Andreas Apple Silicon, GTA San Andreas macOS, play GTA San Andreas on M1, Saif runtime">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Saif">
+  <meta property="og:url" content="https://saif-runtime.github.io/">
+  <meta property="og:title" content="Saif – GTA: San Andreas, native on Mac">
+  <meta property="og:description" content="A purpose-built runtime that runs your own copy of GTA: San Andreas natively on Apple Silicon. No Wine, no VM.">
+  <meta property="og:image" content="https://saif-runtime.github.io/assets/social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="600">
+  <meta property="og:image:alt" content="Saif: GTA: San Andreas, native on Mac">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Saif – GTA: San Andreas, native on Mac">
+  <meta name="twitter:description" content="Run your own copy of GTA: San Andreas natively on Apple Silicon. No Wine, no VM.">
+  <meta name="twitter:image" content="https://saif-runtime.github.io/assets/social.png">
+  <meta name="google-site-verification" content="u4XGFgxEUHRN_52KT3IvxG5uYagRTpbxtA0d_g_2TKY" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Saif","alternateName":"Saif Runtime","description":"A native macOS runtime for GTA: San Andreas on Apple Silicon. No Wine, no CrossOver, no virtual machine.","applicationCategory":"GameApplication","operatingSystem":"macOS 13+","url":"https://saif-runtime.github.io/","image":"https://saif-runtime.github.io/assets/icon.png","downloadUrl":"https://github.com/saif-runtime/saif-runtime/releases/latest","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="#"><img src="assets/icon.png" alt="" width="28" height="28">SAIF</a>
+      <ul><li><a href="#why">Why</a></li><li><a href="#faq">FAQ</a></li><li><a href="#setup">Setup</a></li><li><a href="#download">Download</a></li></ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-bg" aria-hidden="true"><video src="assets/preview.mp4" autoplay loop muted playsinline preload="auto" disablepictureinpicture tabindex="-1"></video></div>
+    <div class="wrap">
+      <img src="assets/icon.png" alt="Saif app icon" width="112" height="112">
+      <h1>San Andreas,<br><em>natively</em> on your Mac.</h1>
+      <p class="lead">Saif is a purpose-built runtime that plays your own copy of GTA: San Andreas on Apple Silicon. No Wine, no CrossOver, no virtual machine, no paid software.</p>
+      <div class="btns">
+        <a class="btn primary" href="#download">⬇ Download Saif</a>
+        <a class="btn" href="#setup">Setup guide</a>
+      </div>
+      <p class="small">Apple Silicon only · Requires a legitimate Windows install of the game</p>
+    </div>
+  </header>
+
+  <section id="what">
+    <div class="wrap">
+      <h2>What it is</h2>
+      <p class="sub">The original game is a 32-bit Windows program, which a Mac can't run directly. Instead of emulating all of Windows, Saif re-implements just what the game needs, and runs it natively.</p>
+      <div class="grid">
+        <div class="card"><div class="ic">⚡</div><h3>Custom ARM64 JIT</h3><p>The game's x86 code is translated to native Apple Silicon machine code.</p></div>
+        <div class="card"><div class="ic">🎨</div><h3>Metal graphics</h3><p>Direct3D 9 is implemented directly on Metal.</p></div>
+        <div class="card"><div class="ic">🔊</div><h3>Native audio &amp; input</h3><p>DirectSound, DirectInput etc. are handled with CoreAudio/SDL.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <h2>Why it exists</h2>
+      <div class="cols">
+        <div>
+          <p class="sub" style="margin-bottom:0">GTA: San Andreas was released in 2004. More than two decades later, there was still no proper macOS support and this frustrated me. The usual workarounds are often behind a paid app or a virtual machine, e.g. Wine, CrossOver, Parallels Desktop, Sikarugir and more. Some of them work (sort of), but they are clumsy to set up and do not provide native performance.</p>
+        </div>
+        <div class="vs">
+          <div>Why use the Saif runtime?</div>
+          <div><b>✓</b><span>Tuned for GTA:SA, so the CPU and GPU paths are optimised directly</span></div>
+          <div><b>✓</b><span>Free: no subscriptions, no Windows licence, no VM to configure</span></div>
+          <div><b>✓</b><span>Lightweight app with a simple launcher: pick your game folder, press Launch</span></div>
+          <div><b>✓</b><span>Widescreen, ultrawide and borderless fullscreen supported</span></div>
+        </div>
+      </div>
+      <p class="note">Saif ships <strong>no game files and no Rockstar content</strong>. You bring your own copy of the game.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details name="faq" open><summary>What are the system requirements?</summary>
+          <div class="ans">
+            <table>
+              <tr><td>Mac</td><td>Apple Silicon (M1 or newer). Intel Macs are unfortunately not supported.</td></tr>
+              <tr><td>macOS</td><td>macOS 13 Ventura or later</td></tr>
+              <tr><td>Game</td><td>A complete Windows install of <strong>GTA: San Andreas v1.0 US</strong> (<code>gta_sa.exe</code>, 14,383,616 bytes). Other versions (Steam, Rockstar Launcher, Definitive Edition, v1.01) are not confirmed to be supported yet.</td></tr>
+            </table>
+          </div>
+        </details>
+        <details name="faq"><summary>Are mods/multiplayer/SA:MP supported?</summary>
+          <div class="ans">It depends. Some mods that modify game content/assets like models and textures may work properly. Other mods that load custom code or patch existing functions will likely not work yet. We are planning on expanding Saif in the future to support more of these. You can <a href="#support">donate</a> to help support the development of the project.</div>
+        </details>
+        <details name="faq"><summary>Are controllers supported?</summary>
+          <div class="ans">Unfortunately not at the moment. We are planning on expanding Saif in the future to add controller support. You can <a href="#support">donate</a> to help support the development of the project.</div>
+        </details>
+        <details name="faq"><summary>Does Saif include the game?</summary>
+          <div class="ans">No. Saif ships only its own application and no Rockstar content. You need your own legitimate, complete Windows install of GTA: San Andreas.</div>
+        </details>
+        <details name="faq"><summary>Is it free?</summary>
+          <div class="ans">Yes. If you want to support development, you can <a href="#support">donate</a>.</div>
+        </details>
+        <details name="faq"><summary>How is this different from Wine or CrossOver?</summary>
+          <div class="ans">Wine-based tools translate Windows, DirectX and x86 in generic layers. Saif is built for GTA:SA specifically: a custom ARM64 JIT for the CPU and a direct Metal renderer for graphics.</div>
+        </details>
+        <details name="faq"><summary>Something is broken. Where do I report it?</summary>
+          <div class="ans">Open an issue on <a href="https://github.com/saif-runtime/saif-runtime/issues" target="_blank" rel="noopener">GitHub</a>.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="setup">
+    <div class="wrap">
+      <h2>Setup guide</h2>
+      <p class="sub">Please follow the steps below to setup the Saif runtime on your Mac.</p>
+      <ol class="steps">
+        <li><div><strong>Get your game files</strong>
+            <span>Since Saif does not come shipped with the game files, you will need to provide them yourself. The most reliable way is to copy the full GTA: San Andreas folder from a legitimate Windows install onto your Mac (e.g. <code>/Users/john/gta-sa</code>). This game folder should contain <code>gta_sa.exe</code>.</span>
+            <br><br>
+            <span>We always recommend obtaining a legitimate, original copy of the game.</span>
+            <img class="shot zoomable-image" src="assets/game-files.png" width="1032" height="548" loading="lazy" alt="Finder window showing a gtasa folder containing anim, audio, data, models, movies, text folders and gta_sa.exe">
+        </div></li>
+        <li><div><strong>Download Saif</strong><span>Grab the latest release of the Saif runtime and drag <code>Saif.app</code> to Applications.</span></div></li>
+        <li><div><strong>Choose your game folder</strong><span>Open Saif, click to select the GTA folder.</span>
+            <img class="shot narrow zoomable-image" src="assets/saif-preview.png" width="632" height="504" loading="lazy" alt="The Saif launcher window with a game folder selected and a Launch Game button"></div></li>
+        <li><div><strong>Launch &amp; play</strong><span>Press Launch Game to start playing.</span>
+            <img class="shot medium zoomable-image" src="assets/game-running.png" width="1481" height="992" loading="lazy" alt="GTA: San Andreas main menu running in a macOS window"></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <h2>Download</h2>
+      <p class="sub">Releases are published on GitHub.</p>
+      <div class="dl">
+        <img src="assets/icon.png" alt="" width="160" height="160">
+        <div class="dl-body">
+          <div>
+            <h3>Saif for macOS <span class="tag">latest</span><span class="tag free">free</span></h3>
+            <p>Apple Silicon · macOS 13+</p>
+          </div>
+          <a class="btn primary" id="get-release" href="https://github.com/saif-runtime/saif-runtime/releases/latest" target="_blank" rel="noopener">⬇ Get latest release</a>
+        </div>
+      </div>
+      <p class="small">All versions and release notes: <a href="https://github.com/saif-runtime/saif-runtime/releases" target="_blank" rel="noopener">github.com/saif-runtime/saif-runtime/releases</a>.</p>
+    </div>
+  </section>
+
+  <section id="support" class="support">
+    <div class="wrap">
+      <h2>Support the project</h2>
+      <p class="sub">Saif is built and maintained in spare time. If it gave you San Andreas back on your Mac, a donation helps keep development going. Bug reports and feedback help just as much.</p>
+      <div class="btns">
+        <a class="btn primary" href="https://ko-fi.com/musa11971" target="_blank" rel="noopener">♥ Donate</a>
+        <a class="btn" href="https://github.com/saif-runtime/saif-runtime/issues" target="_blank" rel="noopener">Report an issue</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      Saif is an independent project and is not affiliated with or endorsed by Rockstar Games or Take-Two Interactive.<br>
+      Grand Theft Auto and San Andreas are trademarks of their respective owners. You must own a legitimate copy of the game.
+    </div>
+  </footer>
+
+  <dialog id="thanks" aria-labelledby="thanks-title">
+    <form method="dialog"><button class="x" aria-label="Close">×</button></form>
+    <img src="assets/icon.png" alt="" width="64" height="64">
+    <h3 id="thanks-title">Thanks for using Saif! ❤️</h3>
+    <p>Saif is built in spare time by one person, and it's free for everyone. If it brings San Andreas back to your Mac, a small tip, even the price of a coffee, helps cover development time and keeps updates coming.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://ko-fi.com/musa11971" target="_blank" rel="noopener">♥ Support Saif</a>
+      <a class="btn" id="thanks-continue" href="https://github.com/saif-runtime/saif-runtime/releases/latest" target="_blank" rel="noopener">No thanks, continue to download</a>
+    </div>
+  </dialog>
+
+  <script src="js/zoomable.js"></script>
+  <script src="js/thanks-modal.js"></script>
+</body>
+</html>

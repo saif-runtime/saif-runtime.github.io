@@ -1,0 +1,17 @@
+/**
+ * zoomable.js
+ *
+ * A lightweight, dependency-free image zoom effect for websites.
+ *
+ * Created by @musa11971
+ * License: MIT
+ *
+ * Usage:
+ *
+ * <figure>
+ *   <img class="zoomable-image" src="image.jpg" alt="">
+ * </figure>
+ *
+ * new ZoomableImages();
+ */
+class ZoomableImages{constructor(i=".zoomable-image"){this.images=document.querySelectorAll(i),this.activeImage=null,this.overlay=null,this.placeholder=null,this.originalParent=null,this.originalNextSibling=null,this.escapeHandler=null,this.scrollHandler=null,this.isOpen=!1,this.isAnimating=!1,this.init()}init(){this.images.forEach(i=>{i.style.cursor="zoom-in",i.addEventListener("click",()=>{this.isOpen?this.close():this.open(i)})})}createOverlay(){this.overlay=document.createElement("div"),Object.assign(this.overlay.style,{position:"fixed",inset:"0",background:"rgba(255,255,255,0.97)",zIndex:"999999",opacity:"0",transition:"opacity .3s ease",cursor:"zoom-out"}),document.body.appendChild(this.overlay),requestAnimationFrame(()=>{this.overlay.style.opacity="1"}),this.overlay.addEventListener("click",()=>{this.close()})}calculateZoomSize(i){const e=i.getBoundingClientRect(),t=i.naturalWidth,n=i.naturalHeight,s=.95*window.innerWidth,l=window.innerHeight-20,o=Math.min(t,3*e.width,s)/t;let a=t*o,h=n*o;if(h>l){const i=l/h;a*=i,h*=i}return{width:a,height:h}}open(i){if(this.isOpen||this.isAnimating)return;if(i.naturalWidth<300)return;this.isOpen=!0,this.isAnimating=!0,this.activeImage=i;const e=i.getBoundingClientRect();this.originalParent=i.parentNode,this.originalNextSibling=i.nextSibling,this.placeholder=document.createElement("div"),Object.assign(this.placeholder.style,{width:`${e.width}px`,height:`${e.height}px`}),this.originalParent.insertBefore(this.placeholder,i),this.createOverlay(),Object.assign(i.style,{position:"fixed",top:`${e.top}px`,left:`${e.left}px`,width:`${e.width}px`,height:`${e.height}px`,margin:"0",zIndex:"1000000",transition:"all .35s cubic-bezier(.2,.8,.2,1)",cursor:"zoom-out"}),document.body.appendChild(i),requestAnimationFrame(()=>{const e=this.calculateZoomSize(i);i.style.width=`${e.width}px`,i.style.height=`${e.height}px`,i.style.left=(window.innerWidth-e.width)/2+"px",i.style.top=(window.innerHeight-e.height)/2+"px"}),i.addEventListener("transitionend",()=>{this.isAnimating=!1},{once:!0}),this.escapeHandler=i=>{"Escape"===i.key&&this.close()},this.scrollHandler=()=>{this.close()},window.addEventListener("keydown",this.escapeHandler),window.addEventListener("wheel",this.scrollHandler,{once:!0,passive:!0})}close(){if(!this.isOpen||this.isAnimating)return;this.isAnimating=!0;const i=this.activeImage,e=this.placeholder.getBoundingClientRect();this.overlay.style.opacity="0",i.style.top=`${e.top}px`,i.style.left=`${e.left}px`,i.style.width=`${e.width}px`,i.style.height=`${e.height}px`,i.addEventListener("transitionend",()=>{this.originalNextSibling?this.originalParent.insertBefore(i,this.originalNextSibling):this.originalParent.appendChild(i),this.placeholder.remove(),this.overlay.remove(),Object.assign(i.style,{position:"",top:"",left:"",width:"",height:"",margin:"",zIndex:"",transition:"",cursor:"zoom-in"}),window.removeEventListener("keydown",this.escapeHandler),this.activeImage=null,this.overlay=null,this.placeholder=null,this.originalParent=null,this.originalNextSibling=null,this.isOpen=!1,this.isAnimating=!1},{once:!0})}}document.addEventListener("DOMContentLoaded",()=>{new ZoomableImages});
