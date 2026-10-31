@@ -13,6 +13,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:5
 .brand img{width:28px;height:28px;border-radius:7px}
 nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:14px;color:var(--muted)}
 nav ul a{text-decoration:none}nav ul a:hover{color:var(--text)}
+nav ul a .ext{margin-left:4px;vertical-align:-1px;opacity:.7}
 @media(max-width:640px){nav ul li:not(:last-child){display:none}}
 .hero{position:relative;overflow:hidden;isolation:isolate;padding:88px 0 72px;text-align:center}
 .hero-bg{position:absolute;inset:0;z-index:-2}
@@ -35,7 +36,7 @@ h2{font-size:clamp(26px,4vw,36px);letter-spacing:-.02em;margin:0 0 12px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
 .card h3{margin:0 0 6px;font-size:17px}
 .card p{margin:0;color:var(--muted);font-size:15px}
-.card .ic{font-size:22px;margin-bottom:10px}
+.card .ic{display:grid;place-items:center;width:44px;height:44px;margin-bottom:14px;border-radius:12px;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);border:1px solid color-mix(in srgb,var(--accent) 28%,transparent)}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:32px}
 @media(max-width:760px){.cols{grid-template-columns:1fr}}
 .vs{display:grid;gap:10px;margin-top:8px}
@@ -46,20 +47,6 @@ td{padding:14px 18px;border-bottom:1px solid var(--line);font-size:15px;vertical
 tr:last-child td{border-bottom:0}
 td:first-child{color:var(--muted);width:30%;white-space:nowrap}
 code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:color-mix(in srgb,var(--text) 9%,transparent);padding:2px 6px;border-radius:6px;word-break:break-all}
-.faq{display:grid;gap:10px;interpolate-size:allow-keywords}
-.faq details::details-content{block-size:0;overflow:hidden;opacity:0;transition:block-size .3s ease,opacity .3s ease,content-visibility .3s allow-discrete}
-.faq details[open]::details-content{block-size:auto;opacity:1}
-@media(prefers-reduced-motion:reduce){.faq details::details-content,.faq summary::after{transition:none}}
-.faq details{background:var(--panel);border:1px solid var(--line);border-radius:14px}
-.faq summary{cursor:pointer;list-style:none;padding:16px 20px;font-weight:650;display:flex;justify-content:space-between;gap:16px;align-items:center}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--accent);flex:none;transition:transform .2s}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq .ans{padding:0 20px 18px;color:var(--muted);font-size:15px}
-.faq .ans a{color:var(--accent)}
-.faq .ans table{background:none;border:0;border-radius:0;color:var(--text)}
-.faq .ans td{padding:10px 0;border-color:var(--line)}
-.faq .ans td:first-child{padding-right:16px}
 .dl{display:flex;align-items:center;gap:24px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px 28px 20px 20px}
 .dl>img{flex:none;width:96px;height:96px;align-self:center;border-radius:22px}
 .dl-body{flex:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:6px 0}
@@ -89,3 +76,11 @@ dialog#thanks .btn{justify-content:center;text-align:center}
 dialog#thanks .x{position:absolute;top:10px;right:12px;background:none;border:0;color:var(--muted);font-size:26px;line-height:1;cursor:pointer;padding:4px 8px}
 dialog#thanks .x:hover{color:var(--text)}
 @media(prefers-reduced-motion:reduce){dialog#thanks[open]{animation:none}}
+dialog#demo{border:0;background:#000;padding:0;width:min(960px,calc(100% - 32px));border-radius:16px;overflow:visible;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+dialog#demo::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(4px)}
+dialog#demo[open]{animation:pop .25s ease}
+dialog#demo .demo-frame{aspect-ratio:16/9;border-radius:16px;overflow:hidden}
+dialog#demo iframe{width:100%;height:100%;border:0;display:block}
+dialog#demo .x{position:absolute;top:-38px;right:0;background:none;border:0;color:#fff;font-size:28px;line-height:1;cursor:pointer;padding:4px 8px;opacity:.85}
+dialog#demo .x:hover{opacity:1}
+@media(prefers-reduced-motion:reduce){dialog#demo[open]{animation:none}}

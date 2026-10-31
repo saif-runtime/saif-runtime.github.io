@@ -1,0 +1,169 @@
+/* Match the landing page (public/css/style.css): warm light theme, orange accent. */
+:root,
+:root[data-theme='light'],
+:root[data-theme='dark'] {
+  color-scheme: light;
+
+  --sl-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', system-ui, sans-serif;
+  --sl-font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sl-nav-height: 3.5rem;
+
+  --sl-color-accent-low: #fbe9d2;
+  --sl-color-accent: #e8830a;
+  --sl-color-accent-high: #a85a00;
+
+  --sl-color-white: #141414;
+  --sl-color-gray-1: #1f1f22;
+  --sl-color-gray-2: #34343a;
+  --sl-color-gray-3: #55555c;
+  --sl-color-gray-4: #6b6b72;
+  --sl-color-gray-5: #e3e1db;
+  --sl-color-gray-6: #efede8;
+  --sl-color-gray-7: #f6f5f2;
+  --sl-color-black: #ffffff;
+
+  --sl-color-bg: #f6f5f2;
+  --sl-color-bg-nav: color-mix(in srgb, #f6f5f2 80%, transparent);
+  --sl-color-bg-sidebar: #f6f5f2;
+  --sl-color-bg-inline-code: color-mix(in srgb, #141414 9%, transparent);
+  --sl-color-hairline: #e3e1db;
+  --sl-color-hairline-light: #e3e1db;
+  --sl-color-hairline-shade: #e3e1db;
+  --sl-color-text: #141414;
+  --sl-color-text-accent: #a85a00;
+}
+
+/* The landing page is light-only, so there is no theme switcher. */
+starlight-theme-select {
+  display: none;
+}
+
+.header {
+  border-bottom: 0;
+  box-shadow: none;
+}
+
+.site-title {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  gap: 10px;
+}
+.site-title img {
+  border-radius: 7px;
+}
+
+h1,
+.sl-markdown-content h2 {
+  letter-spacing: -0.02em;
+}
+h1 {
+  font-weight: 800;
+}
+
+.sl-markdown-content :not(pre) > code {
+  border-radius: 6px;
+}
+
+/* Cards, code blocks and tables use the landing page's rounded panels. */
+.sl-markdown-content table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.sl-markdown-content :is(th, td) {
+  padding: 12px 18px;
+  border: 0;
+  border-bottom: 1px solid var(--sl-color-hairline);
+  text-align: left;
+  vertical-align: top;
+}
+.sl-markdown-content th {
+  background: var(--sl-color-gray-7);
+  color: var(--sl-color-gray-4);
+  font-size: 0.85rem;
+  font-weight: 650;
+}
+.sl-markdown-content tr:last-child td {
+  border-bottom: 0;
+}
+.expressive-code .frame {
+  border-radius: 12px;
+}
+
+.sl-link-button.primary {
+  background: var(--sl-color-accent);
+  border-color: var(--sl-color-accent);
+  color: #fff;
+  border-radius: 12px;
+}
+
+footer .meta a,
+.pagination-links a {
+  border-radius: 14px;
+}
+
+.site-title {
+  color: var(--sl-color-text);
+}
+.site-title img {
+  height: 28px;
+  width: 28px;
+}
+
+/* Active sidebar item uses the landing page's orange accent. */
+.sidebar-content a[aria-current='page'],
+.sidebar-content a[aria-current='page']:hover {
+  background: var(--sl-color-accent);
+  color: #fff;
+  border-radius: 8px;
+}
+
+site-search button[data-open-modal] {
+  box-shadow: none;
+  border-radius: 12px;
+}
+
+.social-icons::after {
+  display: none;
+}
+.social-icons a[href*='ko-fi.com'] {
+  color: var(--sl-color-accent);
+}
+
+/* Starlight sets `height: auto` on iframes, which ignores the embed's height attribute. */
+.sl-markdown-content iframe[src*='youtube'] {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 12px;
+}
+
+/* Sidebar groups are always expanded: no chevron, heading isn't clickable. */
+.sidebar-content details > summary {
+  pointer-events: none;
+  cursor: default;
+}
+.sidebar-content details > summary .caret {
+  display: none;
+}
+.sidebar-content details::details-content {
+  content-visibility: visible;
+  display: block;
+  height: auto;
+}
+
+/* Callouts use the landing page's orange accent and rounded panels. */
+.starlight-aside--tip {
+  --sl-color-asides-text-accent: var(--sl-color-accent-high);
+  background: var(--sl-color-accent-low);
+  border: 1px solid color-mix(in srgb, var(--sl-color-accent) 35%, transparent);
+  border-inline-start: 3px solid var(--sl-color-accent);
+  border-radius: 16px;
+  color: var(--sl-color-text);
+}
