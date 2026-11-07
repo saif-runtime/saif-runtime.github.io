@@ -10,6 +10,21 @@ Saif re-implements only the Windows features the base game needs. Mods that just
 ## What mods are supported?
 See [Supported mods](/docs/modding/supported-mods/).
 
+## How do I install supported mods with Saif?
+Installing GTA SA mods with Saif is exactly the same as on Windows. One important difference is that **you do not need an ASI-loader!** Saif natively loads supported mods without the need for an ASI-loader.
+
+Example of installing [SilentPatch](https://github.com/CookiePLMonster/SilentPatch):
+1. Download and unarchive SilentPatch → this gives you `SilentPatchSA.asi` and `SilentPatchSA.ini`
+2. Drag and drop both files to your GTA SA game folder.
+3. You do not need to install ASI-loader; mods are natively loaded by Saif itself.
+4. Select your modded game folder in Saif: supported mods are automatically detected.
+   ![Supported mod being detected in Saif launcher](/assets/docs/install-supported-mod.png)
+5. Launch the game and enjoy! 🚀
+
+:::note[Note on installing mods]
+GTA San Andreas mods are (unfortunately) developed in different ways, and thus their installation method may differ. Some require you to drop an ASI-file in your game directory, and some require more setup. Please refer to the mod's original setup guide.
+:::
+
 ## Can support for `my mod` be added?
 Maybe, [open an issue](https://github.com/saif-runtime/saif-runtime/issues/new/choose) to tell us which mod you want next.
 
